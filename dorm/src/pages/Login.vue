@@ -4,7 +4,7 @@
 <!--    标题-->
     <article class="title-container">
       <div class="title-container-div">
-        <p>胡桃宿舍管理系统</p>
+        <p>雪霁梅香宿舍管理系统</p>
       </div>
     </article>
 <!--    内容-->
