@@ -1,28 +1,43 @@
 <template>
-  <div>
-    <article class="background">
+<div>
+  <div class="container">
+<!--    标题-->
+    <article class="title-container">
+      <div class="title-container-div">
+        <p>胡桃宿舍管理系统</p>
+      </div>
     </article>
-<!--    登录的主题内容-->
-    <article class="login-container">
-<!--      登录文字-->
-      <section class="login-title">
-        后台管理
+<!--    内容-->
+    <article class="input-container">
+<!--      登录方式-->
+      <section class="login-type-container">
+        <div>用户登录</div>
+        <div>|</div>
+        <div>管理员登录</div>
       </section>
-
-      <section class="login-item">
-        <p class="text">用户名</p>
-        <input type="text">
+      <section class="login-input-container">
+        <div>
+          <p>账号:</p>
+          <input type="text">
+        </div>
+        <div>
+          <p>密码:</p>
+          <input type="password"></div>
       </section>
-      <section class="login-item">
-        <p class="text">密码</p>
-        <input type="password">
+      <!--    忘记密码-->
+      <article class="forget-container">
+        <div><input type="checkbox">下次自动登录</div>
+        <div><p>忘记密码?</p></div>
+      </article>
+      <section class="login-container">
+        <div><button @click="login">登录</button></div>
       </section>
-<!--      登录按钮-->
-      <section>
-        <button class="login-submit" @click="login">登录</button>
+      <section class="resister-container">
+        <div>没有账号?赶快注册</div>
       </section>
     </article>
   </div>
+</div>
 </template>
 
 <script>
@@ -30,109 +45,132 @@ export default {
   name: "Login",
   methods:{
     login(){
-      this.$router.replace('/article')
+      this.$router.push("/structure")
     }
-  },
-  mounted() {
-    document.querySelector("body").className += 'background'
   }
 }
 </script>
 
 <style scoped>
-.background{
-  background: url("./images/bgc3.jpg") no-repeat fixed;
-  filter: blur(5px) brightness(90%) saturate(150%);
-  background-size: 100% 100%;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
+
+.container{
+  width: 500px;
+  height: 550px;
+  /*background: #ffffff;*/
+  margin: 100px auto;
 }
-.login-container{
-  width: 25%;
-  height: 60%;
-  z-index: 100;
-  position: fixed;
-  margin: auto;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  background-color: rgba(255,255,255,0.2);
-  border-radius: 5px;
-  padding: 10px 10px;
+.title-container{
+  width: 100%;
+  height: 80px;
+  /*background-color: purple;*/
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
-.login-container .login-item{
-  width: 90%;
-  height: 40px;
-  /*background-color: pink;*/
-  margin: 20px 0;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1.5px solid rgb(200,200,200);
+.title-container p{
+  font-size: 40px;
+  color: #2f9fef;
 }
-
-.login-item .text{
-  width: 20%;
-  /*background-color: pink;*/
-  font-size: 18px;
-  color: rgb(180,180,180);
-  text-align: right;
-  line-height: 40px;
-  margin-right: 10px;
-}
-
-.login-container section input{
+.input-container{
+  border-radius: 5px;
+  margin-top: 20px;
+  background-color: #ffffff;
   width: 100%;
-  outline: none;
-  background-color: rgba(255,255,255,0);
-  font-family: 'SimHei';
-  /*background-color: pink;*/
-  font-size: 30px;
-  color: white;
-
+  height: 82%;
 }
-/*.login-container section input::-webkit-input-placeholder {*/
-/*  color: rgb(180,180,180);*/
-/*  font-size: 20px;*/
-/*  font-weight: 5;*/
-/*  margin-top: 3px;*/
-/*  position: relative;*/
-/*  top: 5px;*/
-/*  left: 5px;*/
-/*}*/
-
-.login-container .login-title{
-  border: none;
-  margin: 0 auto;
-  margin-bottom: 60px;
-  font-size: 50px;
-  color: white;
+.login-type-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+  border-bottom: 1px solid #e9f1f7;
+}
+.login-type-container div:nth-child(1){
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 900;
+  margin-right: 10px;
   text-align: center;
 }
-
-.login-submit{
-  width: 200px;
-  height: 40px;
-  border-radius: 5px;
-  outline: none;
-  border: none;
-  font-size: 25px;
-  font-weight: 1000;
-  color: white;
-  background:linear-gradient(to bottom right, #a3bcb1,#37b9e9);/*设置按钮为渐变颜色*/
-  transition: all 0.2s;
+.login-type-container div:nth-child(3){
   cursor: pointer;
+  font-size: 20px;
+  font-weight: 900;
+  margin-right: 10px;
+  text-align: center;
+  margin-left: 10px;
+  color: #00a8ff;
 }
 
-.login-submit:hover{
-  background:linear-gradient(to bottom right,#37b9e9, #a3bcb1);
-  color: purple;
+.login-input-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /*background-color: pink;*/
+  width: 100%;
+  height: 200px;
+}
+.login-input-container div{
+  width: 80%;
+  height: 30%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*border: 1px solid #7e8c8d;*/
+}
+.login-input-container div:nth-child(1){
+  margin-bottom: 20px;
+}
+.login-input-container input{
+  margin: 20px;
+  width: 80%;
+  height: 80%;
+  background-color: #e8f0fe;
+  text-indent: 10px;
+  outline: none;
+  border: 1px solid #d9d9d9;
+}
+.forget-container{
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 30px;
+  /*background-color: pink;*/
+  padding: 0 40px;
+}
+.forget-container p{
+  color: #00a8ff;
+  cursor: pointer;
+}
+.login-container{
+  text-align: center;
+}
+.login-container button{
+  margin-top: 10px;
+  cursor: pointer;
+  width: 300px;
+  height: 60px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid dodgerblue;
+  background-color: #2299ee;
+  font-size: 25px;
+  color: #ffffff;
+}
+.login-container button:hover{
+  background-color: #00a8ff;
+}
+
+.resister-container{
+  margin-top: 20px;
+  text-align: center;
+}
+.resister-container div{
+  cursor: pointer;
+  color: #00a8ff;
 }
 </style>
