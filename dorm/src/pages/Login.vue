@@ -17,11 +17,11 @@
       </section>
       <section class="login-input-container">
         <div>
-          <p>账号:</p>
+          <p style="width: 40px">账号:</p>
           <input type="text">
         </div>
         <div>
-          <p>密码:</p>
+          <p style="width: 40px">密码:</p>
           <input type="password"></div>
       </section>
       <!--    忘记密码-->
